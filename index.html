@@ -6,8 +6,8 @@
     <title>Hampahari Outdoor - Rental Alat Camping Banjarbaru</title>
     <style>
         :root {
-            --primary-color: #1a432d; /* Hijau tua khas Hampahari */
-            --accent-color: #e5d898; /* Kuning background katalog */
+            --primary-color: #1a432d;
+            --accent-color: #e5d898;
             --bg-color: #f4f4f9;
             --text-color: #333;
         }
@@ -28,254 +28,96 @@
             border-bottom: 5px solid var(--accent-color);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        header h1 { margin: 0; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
+        header p { margin: 10px 0 0 0; font-size: 1.1rem; color: var(--accent-color); }
 
-        header p {
-            margin: 10px 0 0 0;
-            font-size: 1.1rem;
-            color: var(--accent-color);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         .section-title {
-            text-align: center;
-            color: var(--primary-color);
-            margin: 30px 0 20px;
-            font-size: 1.8rem;
-            border-bottom: 2px solid var(--accent-color);
-            display: inline-block;
-            padding-bottom: 5px;
+            text-align: center; color: var(--primary-color); margin: 30px 0 20px;
+            font-size: 1.8rem; border-bottom: 2px solid var(--accent-color);
+            display: inline-block; padding-bottom: 5px;
         }
 
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px; margin-bottom: 40px;
         }
 
         .product-card {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 15px;
-            text-align: center;
-            transition: transform 0.3s;
-            border: 1px solid #ddd;
+            background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 15px; text-align: center; transition: transform 0.3s; border: 1px solid #ddd;
         }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-color);
-        }
-
-        .product-title {
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: var(--primary-color);
-        }
-
-        .product-desc {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 10px;
-            min-height: 40px;
-        }
-
-        .product-price {
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #d32f2f;
-            margin-bottom: 15px;
-        }
+        .product-card:hover { transform: translateY(-5px); border-color: var(--primary-color); }
+        .product-title { font-weight: bold; font-size: 1.2rem; margin: 10px 0; color: var(--primary-color); }
+        .product-desc { font-size: 0.9rem; color: #666; margin-bottom: 10px; min-height: 40px; }
+        .product-price { font-size: 1.3rem; font-weight: bold; color: #d32f2f; margin-bottom: 15px; }
 
         .btn-add {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            transition: background 0.3s;
+            background-color: var(--primary-color); color: white; border: none;
+            padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;
+            width: 100%; transition: background 0.3s;
         }
+        .btn-add:hover { background-color: #12301f; }
 
-        .btn-add:hover {
-            background-color: #12301f;
-        }
-
-        /* Cart Styles (Tampilan Desktop) */
+        /* Cart Styles */
         .cart-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            bottom: 0;
-            border-top: 4px solid var(--primary-color);
-            z-index: 100;
+            background: white; padding: 20px; border-radius: 8px; box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+            position: sticky; bottom: 0; border-top: 4px solid var(--primary-color); z-index: 100;
         }
-
-        .cart-items {
-            max-height: 150px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-            border-bottom: 1px solid #eee;
-        }
-
-        .cart-total {
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: right;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
+        .cart-items { max-height: 150px; overflow-y: auto; margin-bottom: 15px; }
+        .cart-item { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #eee; }
+        .cart-total { font-size: 1.5rem; font-weight: bold; text-align: right; margin-bottom: 15px; color: var(--primary-color); }
 
         .btn-checkout {
-            background-color: #25D366; /* Warna WhatsApp */
-            color: white;
-            border: none;
-            padding: 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1.2rem;
-            width: 100%;
-            text-transform: uppercase;
+            background-color: #25D366; color: white; border: none; padding: 15px;
+            border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 1.2rem;
+            width: 100%; text-transform: uppercase;
         }
+        .btn-checkout:hover { background-color: #1da851; }
+        .remove-btn { background: #d32f2f; color: white; border: none; border-radius: 3px; padding: 2px 8px; cursor: pointer; margin-left: 10px; }
 
-        .btn-checkout:hover {
-            background-color: #1da851;
-        }
+        footer { text-align: center; padding: 20px; background: var(--primary-color); color: white; margin-top: 40px; }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: var(--primary-color);
-            color: white;
-            margin-top: 40px;
+        /* ========================================= */
+        /* MODAL FORM PEMESANAN STYLES               */
+        /* ========================================= */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center;
         }
-        
-        .remove-btn {
-            background: #d32f2f;
-            color: white;
-            border: none;
-            border-radius: 3px;
-            padding: 2px 8px;
-            cursor: pointer;
-            margin-left: 10px;
+        .modal-content {
+            background: white; padding: 20px; border-radius: 8px; width: 90%; max-width: 400px;
+            max-height: 90vh; overflow-y: auto; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; border-bottom: 2px solid var(--accent-color); padding-bottom: 10px;}
+        .modal-header h3 { margin: 0; color: var(--primary-color); }
+        .close-modal { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #d32f2f; font-weight: bold;}
+        .form-group { margin-bottom: 15px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; color: #333;}
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-family: inherit;}
 
-        /* ======================================================== */
-        /* RESPONSIVE MEDIA QUERY KHUSUS MODE HP (Maksimal 600px)   */
-        /* ======================================================== */
+        /* RESPONSIVE KHUSUS MODE HP */
         @media (max-width: 600px) {
-            header {
-                padding: 1.5rem 0.5rem;
-            }
-            header h1 {
-                font-size: 1.6rem;
-                letter-spacing: 1px;
-            }
-            header p {
-                font-size: 0.85rem;
-            }
-            .container {
-                padding: 10px;
-            }
-            .section-title {
-                font-size: 1.3rem;
-                margin: 20px 0 10px;
-            }
-            
-            /* Mengubah grid katalog menjadi 2 kolom di HP agar padat & rapi */
-            .product-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                margin-bottom: 25px;
-            }
-            .product-card {
-                padding: 10px;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                border-radius: 6px;
-            }
-            .product-title {
-                font-size: 0.95rem;
-                margin: 5px 0;
-                line-height: 1.2;
-            }
-            .product-desc {
-                font-size: 0.75rem;
-                min-height: auto;
-                margin-bottom: 8px;
-                line-height: 1.3;
-            }
-            .product-price {
-                font-size: 1rem;
-                margin-bottom: 8px;
-            }
-            .btn-add {
-                padding: 8px 5px;
-                font-size: 0.8rem;
-                border-radius: 4px;
-            }
-
-            /* Optimasi Ukuran Keranjang Belanja di HP */
-            .cart-container {
-                padding: 10px 12px;
-                border-top-width: 3px;
-            }
-            .cart-container h3 {
-                font-size: 0.95rem;
-                margin: 0 0 5px 0;
-            }
-            .cart-items {
-                max-height: 80px; /* Diperkecil tingginya agar tidak makan tempat */
-                margin-bottom: 6px;
-                font-size: 0.8rem;
-            }
-            .cart-item {
-                padding: 3px 0;
-            }
-            .cart-total {
-                font-size: 1.1rem;
-                margin-bottom: 6px;
-            }
-            .btn-checkout {
-                padding: 10px;
-                font-size: 0.95rem;
-                border-radius: 4px;
-            }
-            .remove-btn {
-                padding: 1px 5px;
-                font-size: 0.7rem;
-                margin-left: 5px;
-            }
-            footer {
-                font-size: 0.8rem;
-                padding: 15px 10px;
-                margin-top: 20px;
-            }
+            header { padding: 1.5rem 0.5rem; }
+            header h1 { font-size: 1.6rem; letter-spacing: 1px; }
+            header p { font-size: 0.85rem; }
+            .container { padding: 10px; }
+            .section-title { font-size: 1.3rem; margin: 20px 0 10px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 25px; }
+            .product-card { padding: 10px; display: flex; flex-direction: column; justify-content: space-between; border-radius: 6px; }
+            .product-title { font-size: 0.95rem; margin: 5px 0; line-height: 1.2; }
+            .product-desc { font-size: 0.75rem; min-height: auto; margin-bottom: 8px; line-height: 1.3; }
+            .product-price { font-size: 1rem; margin-bottom: 8px; }
+            .btn-add { padding: 8px 5px; font-size: 0.8rem; border-radius: 4px; }
+            .cart-container { padding: 10px 12px; border-top-width: 3px; }
+            .cart-container h3 { font-size: 0.95rem; margin: 0 0 5px 0; }
+            .cart-items { max-height: 80px; margin-bottom: 6px; font-size: 0.8rem; }
+            .cart-item { padding: 3px 0; }
+            .cart-total { font-size: 1.1rem; margin-bottom: 6px; }
+            .btn-checkout { padding: 10px; font-size: 0.95rem; border-radius: 4px; }
+            .remove-btn { padding: 1px 5px; font-size: 0.7rem; margin-left: 5px; }
+            footer { font-size: 0.8rem; padding: 15px 10px; margin-top: 20px; }
         }
     </style>
 </head>
@@ -287,7 +129,6 @@
 </header>
 
 <div class="container">
-    
     <div style="text-align: center;">
         <h2 style="font-size: 1.4rem; color: #1a432d; margin-top: 10px;">Daftar Katalog Sewa</h2>
     </div>
@@ -300,7 +141,6 @@
 
     <h3 class="section-title">Perlengkapan Outdoor</h3>
     <div class="product-grid" id="alat-grid"></div>
-
 </div>
 
 <div class="cart-container">
@@ -312,7 +152,39 @@
         <div class="cart-total">
             Total: Rp <span id="total-price">0</span>
         </div>
-        <button class="btn-checkout" onclick="checkoutWA()">Pesan via WhatsApp</button>
+        <button class="btn-checkout" onclick="openModal()">Lanjut Isi Data Pesanan</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="checkout-modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>Form Data Penyewa</h3>
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+        </div>
+        
+        <div class="form-group">
+            <label>1. Nama Pemesan</label>
+            <input type="text" id="cust-nama" placeholder="Masukkan nama lengkap" required>
+        </div>
+        <div class="form-group">
+            <label>2. No HP / WhatsApp</label>
+            <input type="tel" id="cust-hp" placeholder="Contoh: 08123456789" required>
+        </div>
+        <div class="form-group">
+            <label>3. Lokasi Camping</label>
+            <input type="text" id="cust-lokasi" placeholder="Contoh: Bukit Batu / Pantai Batakan" required>
+        </div>
+        <div class="form-group">
+            <label>4. Tanggal Sewa (Ambil Alat)</label>
+            <input type="date" id="cust-tgl-sewa" required>
+        </div>
+        <div class="form-group">
+            <label>5. Tanggal Pengembalian</label>
+            <input type="date" id="cust-tgl-kembali" required>
+        </div>
+        
+        <button class="btn-checkout" onclick="processOrderWA()" style="margin-top: 10px;">Kirim Pesanan via WhatsApp</button>
     </div>
 </div>
 
@@ -322,13 +194,11 @@
 </footer>
 
 <script>
-    // Data Produk dari Katalog Gambar
     const products = [
         // PAKET
         { id: 'p1', name: 'Paket 1 Hampahari', desc: 'Tenda Rei 4p, Matras (4), Lampu, Kompor Mawar, Cooking Set, Gas', price: 85000, category: 'paket' },
         { id: 'p2', name: 'Paket 2 Hampahari', desc: 'Tenda 2p, Matras (2), Lampu, Kompor Kotak, Cooking Set, Gas', price: 50000, category: 'paket' },
         { id: 'p3', name: 'Paket 3 Hampahari', desc: 'Tenda 2p Double Layer, Matras (2), Lampu, Kompor Mawar, Cooking Set, Gas', price: 65000, category: 'paket' },
-        
         // TENDA
         { id: 't1', name: 'Tenda Antares 4', desc: 'Kapsitas 4 Orang (Frame Alloy)', price: 45000, category: 'tenda' },
         { id: 't2', name: 'Tendaki Borneo', desc: 'Kapsitas 4 Orang (Kuning/Tosca/Orange/Merah)', price: 45000, category: 'tenda' },
@@ -336,118 +206,9 @@
         { id: 't4', name: 'Dhaulagiri / Tendaki Easydome', desc: 'Kapsitas 2 Orang', price: 20000, category: 'tenda' },
         { id: 't5', name: 'Flysheet (4x3)', desc: 'Pelindung Atap Tenda', price: 15000, category: 'tenda' },
         { id: 't6', name: 'Flysheet (2x3)', desc: 'Pelindung Atap Tenda', price: 10000, category: 'tenda' },
-
         // PERLENGKAPAN
         { id: 'a1', name: 'Carrier TNF 45L', desc: 'Tas Gunung', price: 20000, category: 'alat' },
         { id: 'a2', name: 'Carrier Rei Toba 60L', desc: 'Tas Gunung', price: 30000, category: 'alat' },
         { id: 'a3', name: 'Sleeping Bag', desc: 'Kantung Tidur', price: 10000, category: 'alat' },
         { id: 'a4', name: 'Matras', desc: 'Alas tidur', price: 5000, category: 'alat' },
-        { id: 'a5', name: 'Kompor Mawar', desc: 'Kompor lipat outdoor', price: 10000, category: 'alat' },
-        { id: 'a6', name: 'Cooking Set Isi 3', desc: 'Peralatan masak', price: 15000, category: 'alat' },
-        { id: 'a7', name: 'Lampu Tenda', desc: 'Penerangan Tenda', price: 5000, category: 'alat' },
-        { id: 'a8', name: 'Kursi Lipat Alloy', desc: 'Kursi Santai Outdoor', price: 20000, category: 'alat' },
-        { id: 'a9', name: 'Meja Lipat (M)', desc: 'Meja Outdoor', price: 20000, category: 'alat' },
-        { id: 'a10', name: 'Paket Alat BBQ', desc: 'Panggangan BBQ + Kompor + Gas', price: 45000, category: 'alat' }
-    ];
-
-    let cart = [];
-
-    function renderProducts() {
-        const paketGrid = document.getElementById('paket-grid');
-        const tendaGrid = document.getElementById('tenda-grid');
-        const alatGrid = document.getElementById('alat-grid');
-
-        products.forEach(product => {
-            const card = document.createElement('div');
-            card.className = 'product-card';
-            card.innerHTML = `
-                <div>
-                    <div class="product-title">${product.name}</div>
-                    <div class="product-desc">${product.desc}</div>
-                </div>
-                <div>
-                    <div class="product-price">Rp ${product.price.toLocaleString('id-ID')}</div>
-                    <button class="btn-add" onclick="addToCart('${product.id}')">+ Tambah</button>
-                </div>
-            `;
-
-            if (product.category === 'paket') paketGrid.appendChild(card);
-            else if (product.category === 'tenda') tendaGrid.appendChild(card);
-            else alatGrid.appendChild(card);
-        });
-    }
-
-    function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existingItem = cart.find(item => item.id === productId);
-
-        if (existingItem) {
-            existingItem.qty += 1;
-        } else {
-            cart.push({ ...product, qty: 1 });
-        }
-        updateCartUI();
-    }
-
-    function removeFromCart(productId) {
-        cart = cart.filter(item => item.id !== productId);
-        updateCartUI();
-    }
-
-    function updateCartUI() {
-        const cartItemsContainer = document.getElementById('cart-items');
-        const totalPriceEl = document.getElementById('total-price');
-        
-        cartItemsContainer.innerHTML = '';
-        let total = 0;
-
-        if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="color: #888; margin: 5px 0;">Keranjang masih kosong.</p>';
-            totalPriceEl.innerText = '0';
-            return;
-        }
-
-        cart.forEach(item => {
-            const subtotal = item.price * item.qty;
-            total += subtotal;
-
-            const itemEl = document.createElement('div');
-            itemEl.className = 'cart-item';
-            itemEl.innerHTML = `
-                <span>${item.name} (x${item.qty})</span>
-                <span>Rp ${subtotal.toLocaleString('id-ID')} <button class="remove-btn" onclick="removeFromCart('${item.id}')">X</button></span>
-            `;
-            cartItemsContainer.appendChild(itemEl);
-        });
-
-        totalPriceEl.innerText = total.toLocaleString('id-ID');
-    }
-
-    function checkoutWA() {
-        if (cart.length === 0) {
-            alert('Keranjang Anda masih kosong!');
-            return;
-        }
-
-        let pesanText = "Halo Admin *Hampahari Outdoor* Banjarbaru,%0A%0ASaya ingin menyewa alat berikut:%0A%0A";
-        let total = 0;
-
-        cart.forEach((item, index) => {
-            const subtotal = item.price * item.qty;
-            total += subtotal;
-            pesanText += `${index + 1}. ${item.name} - ${item.qty} pcs (Rp ${subtotal.toLocaleString('id-ID')})%0A`;
-        });
-
-        pesanText += `%0A*Total Estimasi Sewa: Rp ${total.toLocaleString('id-ID')}*%0A%0AMohon info ketersediaan alat untuk tanggal... (isi tanggal sewa)`;
-
-        const noWA = "6285271022019"; 
-        const linkWA = `https://wa.me/${noWA}?text=${pesanText}`;
-
-        window.open(linkWA, '_blank');
-    }
-
-    window.onload = renderProducts;
-</script>
-
-</body>
-</html>
+        { id:
