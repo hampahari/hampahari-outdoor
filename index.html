@@ -116,7 +116,7 @@
             background-color: #12301f;
         }
 
-        /* Cart Styles */
+        /* Cart Styles (Tampilan Desktop) */
         .cart-container {
             background: white;
             padding: 20px;
@@ -150,7 +150,7 @@
         }
 
         .btn-checkout {
-            background-color: #25D366; /* Warna khas WhatsApp */
+            background-color: #25D366; /* Warna WhatsApp */
             color: white;
             border: none;
             padding: 15px;
@@ -183,6 +183,100 @@
             cursor: pointer;
             margin-left: 10px;
         }
+
+        /* ======================================================== */
+        /* RESPONSIVE MEDIA QUERY KHUSUS MODE HP (Maksimal 600px)   */
+        /* ======================================================== */
+        @media (max-width: 600px) {
+            header {
+                padding: 1.5rem 0.5rem;
+            }
+            header h1 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+            header p {
+                font-size: 0.85rem;
+            }
+            .container {
+                padding: 10px;
+            }
+            .section-title {
+                font-size: 1.3rem;
+                margin: 20px 0 10px;
+            }
+            
+            /* Mengubah grid katalog menjadi 2 kolom di HP agar padat & rapi */
+            .product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                margin-bottom: 25px;
+            }
+            .product-card {
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                border-radius: 6px;
+            }
+            .product-title {
+                font-size: 0.95rem;
+                margin: 5px 0;
+                line-height: 1.2;
+            }
+            .product-desc {
+                font-size: 0.75rem;
+                min-height: auto;
+                margin-bottom: 8px;
+                line-height: 1.3;
+            }
+            .product-price {
+                font-size: 1rem;
+                margin-bottom: 8px;
+            }
+            .btn-add {
+                padding: 8px 5px;
+                font-size: 0.8rem;
+                border-radius: 4px;
+            }
+
+            /* Optimasi Ukuran Keranjang Belanja di HP */
+            .cart-container {
+                padding: 10px 12px;
+                border-top-width: 3px;
+            }
+            .cart-container h3 {
+                font-size: 0.95rem;
+                margin: 0 0 5px 0;
+            }
+            .cart-items {
+                max-height: 80px; /* Diperkecil tingginya agar tidak makan tempat */
+                margin-bottom: 6px;
+                font-size: 0.8rem;
+            }
+            .cart-item {
+                padding: 3px 0;
+            }
+            .cart-total {
+                font-size: 1.1rem;
+                margin-bottom: 6px;
+            }
+            .btn-checkout {
+                padding: 10px;
+                font-size: 0.95rem;
+                border-radius: 4px;
+            }
+            .remove-btn {
+                padding: 1px 5px;
+                font-size: 0.7rem;
+                margin-left: 5px;
+            }
+            footer {
+                font-size: 0.8rem;
+                padding: 15px 10px;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -195,29 +289,25 @@
 <div class="container">
     
     <div style="text-align: center;">
-        <h2>Daftar Katalog Sewa</h2>
+        <h2 style="font-size: 1.4rem; color: #1a432d; margin-top: 10px;">Daftar Katalog Sewa</h2>
     </div>
 
-    <!-- Kategori Paket -->
     <h3 class="section-title">Paket Sewa Hampahari</h3>
     <div class="product-grid" id="paket-grid"></div>
 
-    <!-- Kategori Tenda -->
     <h3 class="section-title">Tenda & Shelter</h3>
     <div class="product-grid" id="tenda-grid"></div>
 
-    <!-- Kategori Perlengkapan -->
     <h3 class="section-title">Perlengkapan Outdoor</h3>
     <div class="product-grid" id="alat-grid"></div>
 
 </div>
 
-<!-- Shopping Cart Bottom Bar -->
 <div class="cart-container">
-    <div class="container">
+    <div class="container" style="padding: 0;">
         <h3>Keranjang Sewa Anda</h3>
         <div class="cart-items" id="cart-items">
-            <p style="color: #888;">Keranjang masih kosong. Silakan pilih alat.</p>
+            <p style="color: #888; margin: 5px 0;">Keranjang masih kosong.</p>
         </div>
         <div class="cart-total">
             Total: Rp <span id="total-price">0</span>
@@ -227,8 +317,8 @@
 </div>
 
 <footer>
-    <p>Jl. Komp. Beringin Rt. 28 Rw. 05 Kel. Sungai Besar Kec. Banjarbaru Selatan, Kota Banjarbaru</p>
-    <p>IG: @hampahari_outdoor | WA: 0852 7102 2019</p>
+    <p style="margin: 5px 0;">Jl. Komp. Beringin Rt. 28 Rw. 05 Kel. Sungai Besar Kec. Banjarbaru Selatan, Kota Banjarbaru</p>
+    <p style="margin: 5px 0; font-weight: bold;">IG: @hampahari_outdoor | WA: 0852 7102 2019</p>
 </footer>
 
 <script>
@@ -240,10 +330,10 @@
         { id: 'p3', name: 'Paket 3 Hampahari', desc: 'Tenda 2p Double Layer, Matras (2), Lampu, Kompor Mawar, Cooking Set, Gas', price: 65000, category: 'paket' },
         
         // TENDA
-        { id: 't1', name: 'Tenda Antares 4', desc: 'Kapasitas 4 Orang (Frame Alloy)', price: 45000, category: 'tenda' },
-        { id: 't2', name: 'Tendaki Borneo', desc: 'Kapasitas 4 Orang (Kuning/Tosca/Orange/Merah)', price: 45000, category: 'tenda' },
-        { id: 't3', name: 'Compass / Morning', desc: 'Kapasitas 2 Orang (Frame Alloy)', price: 35000, category: 'tenda' },
-        { id: 't4', name: 'Dhaulagiri / Tendaki Easydome', desc: 'Kapasitas 2 Orang', price: 20000, category: 'tenda' },
+        { id: 't1', name: 'Tenda Antares 4', desc: 'Kapsitas 4 Orang (Frame Alloy)', price: 45000, category: 'tenda' },
+        { id: 't2', name: 'Tendaki Borneo', desc: 'Kapsitas 4 Orang (Kuning/Tosca/Orange/Merah)', price: 45000, category: 'tenda' },
+        { id: 't3', name: 'Compass / Morning', desc: 'Kapsitas 2 Orang (Frame Alloy)', price: 35000, category: 'tenda' },
+        { id: 't4', name: 'Dhaulagiri / Tendaki Easydome', desc: 'Kapsitas 2 Orang', price: 20000, category: 'tenda' },
         { id: 't5', name: 'Flysheet (4x3)', desc: 'Pelindung Atap Tenda', price: 15000, category: 'tenda' },
         { id: 't6', name: 'Flysheet (2x3)', desc: 'Pelindung Atap Tenda', price: 10000, category: 'tenda' },
 
@@ -262,7 +352,6 @@
 
     let cart = [];
 
-    // Fungsi menampilkan produk
     function renderProducts() {
         const paketGrid = document.getElementById('paket-grid');
         const tendaGrid = document.getElementById('tenda-grid');
@@ -272,10 +361,14 @@
             const card = document.createElement('div');
             card.className = 'product-card';
             card.innerHTML = `
-                <div class="product-title">${product.name}</div>
-                <div class="product-desc">${product.desc}</div>
-                <div class="product-price">Rp ${product.price.toLocaleString('id-ID')}</div>
-                <button class="btn-add" onclick="addToCart('${product.id}')">+ Tambah ke Keranjang</button>
+                <div>
+                    <div class="product-title">${product.name}</div>
+                    <div class="product-desc">${product.desc}</div>
+                </div>
+                <div>
+                    <div class="product-price">Rp ${product.price.toLocaleString('id-ID')}</div>
+                    <button class="btn-add" onclick="addToCart('${product.id}')">+ Tambah</button>
+                </div>
             `;
 
             if (product.category === 'paket') paketGrid.appendChild(card);
@@ -284,7 +377,6 @@
         });
     }
 
-    // Fungsi tambah ke keranjang
     function addToCart(productId) {
         const product = products.find(p => p.id === productId);
         const existingItem = cart.find(item => item.id === productId);
@@ -297,13 +389,11 @@
         updateCartUI();
     }
 
-    // Fungsi hapus dari keranjang
     function removeFromCart(productId) {
         cart = cart.filter(item => item.id !== productId);
         updateCartUI();
     }
 
-    // Fungsi update tampilan keranjang
     function updateCartUI() {
         const cartItemsContainer = document.getElementById('cart-items');
         const totalPriceEl = document.getElementById('total-price');
@@ -312,7 +402,7 @@
         let total = 0;
 
         if (cart.length === 0) {
-            cartItemsContainer.innerHTML = '<p style="color: #888;">Keranjang masih kosong. Silakan pilih alat.</p>';
+            cartItemsContainer.innerHTML = '<p style="color: #888; margin: 5px 0;">Keranjang masih kosong.</p>';
             totalPriceEl.innerText = '0';
             return;
         }
@@ -333,7 +423,6 @@
         totalPriceEl.innerText = total.toLocaleString('id-ID');
     }
 
-    // Fungsi Checkout ke WhatsApp
     function checkoutWA() {
         if (cart.length === 0) {
             alert('Keranjang Anda masih kosong!');
@@ -351,17 +440,13 @@
 
         pesanText += `%0A*Total Estimasi Sewa: Rp ${total.toLocaleString('id-ID')}*%0A%0AMohon info ketersediaan alat untuk tanggal... (isi tanggal sewa)`;
 
-        // Nomor WA Hampahari Outdoor
         const noWA = "6285271022019"; 
         const linkWA = `https://wa.me/${noWA}?text=${pesanText}`;
 
-        // Redirect ke WhatsApp
         window.open(linkWA, '_blank');
     }
 
-    // Inisialisasi saat halaman dimuat
     window.onload = renderProducts;
-
 </script>
 
 </body>
